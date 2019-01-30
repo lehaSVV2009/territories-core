@@ -1,0 +1,31 @@
+{
+  "name": "tic-tac-toe-core",
+  "version": "0.1.0",
+  "description": "Core territories functions",
+  "main": "build/index.js",
+  "files": [
+    "build/**/*.js",
+    "README.md"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lehaSVV2009/territories-core.git"
+  },
+  "keywords": [
+    "territories",
+    "core"
+  ],
+  "scripts": {
+    "build": "babel src -d build",
+    "postinstall": "npm run build"
+  },
+  "peerDependencies": {
+    "boardgame.io": ">= 0.31.1"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1"
+  }
+}

@@ -6,7 +6,7 @@ import {
   isEmptyCell,
   isOccupiedByPlayerOneCell
 } from "./gameUtils";
-import findClosedLoops from "./libs/find-closed-loops";
+import findClosedLoops from "./findClosedLoops";
 
 const selectVictoryContext = ({ allCellsCount, occupiedCounters }) => {
   const occupiedByPlayer1 = occupiedCounters[PLAYER_1];

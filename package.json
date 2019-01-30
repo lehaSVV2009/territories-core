@@ -1,5 +1,5 @@
 {
-  "name": "tic-tac-toe-core",
+  "name": "territories-core",
   "version": "0.1.0",
   "description": "Core territories functions",
   "main": "build/index.js",

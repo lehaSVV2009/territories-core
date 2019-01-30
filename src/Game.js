@@ -45,8 +45,10 @@ const calculateCellsCount = ({ board }) => {
 const DEFAULT_BOARD = [...Array(15).fill([...Array(40).fill(CELL_TYPE.EMPTY)])];
 const DEFAULT_DICES = [0, 0];
 
-const Territories = ({ dices, board }) =>
+export default ({ dices, board }) =>
   Game({
+    name: 'territories',
+
     setup: () => {
       const boardOrDefault = board || DEFAULT_BOARD;
 
@@ -185,5 +187,3 @@ const Territories = ({ dices, board }) =>
       }
     }
   });
-
-export default Territories;

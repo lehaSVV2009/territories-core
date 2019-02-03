@@ -47,18 +47,16 @@ const DEFAULT_DICES = [0, 0];
 
 const Territories = Game({
   setup: () => {
-    const boardOrDefault = DEFAULT_BOARD;
-
     return {
       // Board in format [["EMPTY", "EMPTY"], ["OCCUPIED_BY_PLAYER_1", "OCCUPIED_BY_PLAYER_2"]]
-      board: boardOrDefault,
+      board: DEFAULT_BOARD,
       dices: DEFAULT_DICES,
       rollingDices: null,
       occupiedCounters: {
         [PLAYER_1]: 0,
         [PLAYER_2]: 0
       },
-      allCellsCount: calculateCellsCount({ board: boardOrDefault })
+      allCellsCount: calculateCellsCount({ board: DEFAULT_BOARD })
     };
   },
 

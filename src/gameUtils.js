@@ -1,9 +1,12 @@
-// TODO import from territories-core
+// TODO move functions to a separate files
 export const CELL_TYPE = {
   EMPTY: "EMPTY",
   OCCUPIED_BY_PLAYER_1: "OCCUPIED_BY_PLAYER_1",
   OCCUPIED_BY_PLAYER_2: "OCCUPIED_BY_PLAYER_2"
 };
+
+export const PLAYER_1 = "0";
+export const PLAYER_2 = "1";
 
 export const isEmptyCell = type => {
   return type === CELL_TYPE.EMPTY;
@@ -15,14 +18,44 @@ export const isOccupiedByPlayerTwoCell = type => {
   return type === CELL_TYPE.OCCUPIED_BY_PLAYER_2;
 };
 
-export const PLAYER_1 = "0";
-export const PLAYER_2 = "1";
-
 export const isPlayer1 = player => {
   return player === PLAYER_1;
 };
 export const isPlayer2 = player => {
   return player === PLAYER_2;
+};
+
+export const findPotentiallyOccupiedRectangles = ({
+  currentPlayer,
+  rectangleHeight,
+  rectangleWidth,
+  rows
+}) => {
+  const potentiallyOccupiedRectangles = [];
+  rows.forEach((row, rowIndex) => {
+    row.forEach((column, columnIndex) => {
+      if (
+        canDropRectangle({
+          rowIndex,
+          columnIndex,
+          value: rows[rowIndex][columnIndex],
+          rows,
+          rectangleHeight,
+          rectangleWidth,
+          currentPlayer
+        })
+      ) {
+        potentiallyOccupiedRectangles.push({
+          rowIndex,
+          columnIndex,
+          // TODO replace with height: rectangleHeight, width: rectangleWidth and fix AI dependants
+          rectangleHeight,
+          rectangleWidth
+        });
+      }
+    });
+  });
+  return potentiallyOccupiedRectangles;
 };
 
 export const canDropRectangle = ({
